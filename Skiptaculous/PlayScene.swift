@@ -105,7 +105,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func random() -> UInt32 {
-        var range = UInt32(50)..UInt32(200)
+        var range = UInt32(50)..<UInt32(200)
         return range.startIndex + arc4random_uniform(range.endIndex - range.startIndex + 1)
     }
     

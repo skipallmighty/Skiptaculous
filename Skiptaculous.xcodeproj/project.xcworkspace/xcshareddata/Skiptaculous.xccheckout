@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0798D68D-0927-4392-A356-181D665ED6B8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Skiptaculous</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>64BCE0A7F34C07F0269C56815B1F2EC81998BEAC</key>
+		<string>https://github.com/Grominet/Skiptaculous.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Skiptaculous.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>64BCE0A7F34C07F0269C56815B1F2EC81998BEAC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Grominet/Skiptaculous.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>64BCE0A7F34C07F0269C56815B1F2EC81998BEAC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>64BCE0A7F34C07F0269C56815B1F2EC81998BEAC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Skiptaculous</string>
+		</dict>
+	</array>
+</dict>
+</plist>

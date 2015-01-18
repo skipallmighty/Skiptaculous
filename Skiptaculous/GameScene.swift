@@ -23,7 +23,7 @@ class GameScene: SKScene {
             let location = touch.locationInNode(self)
             if self.nodeAtPoint(location) == self.playButton {
                 var scene = PlayScene(size: self.size)
-                let skView = self.view as SKView
+                let skView = self.view as SKView!
                 skView.ignoresSiblingOrder = true
                 scene.scaleMode = .ResizeFill
                 scene.size = skView.bounds.size

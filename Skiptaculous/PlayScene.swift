@@ -33,7 +33,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         case Block = 2
     }
     
-    override func didMoveToView(view: SKView!) {
+    override func didMoveToView(view: SKView) {
         self.backgroundColor = UIColor(hex: 0x80D9FF)
         
         self.physicsWorld.contactDelegate = self
@@ -49,24 +49,24 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
         self.heroBaseline = self.runningBar.position.y + (self.runningBar.size.height / 2) + (self.hero.size.height / 2)
         self.hero.position = CGPointMake(CGRectGetMinX(self.frame) + self.hero.size.width + (self.hero.size.width / 4), self.heroBaseline)
         self.hero.physicsBody = SKPhysicsBody(circleOfRadius: CGFloat(self.hero.size.width / 2))
-        self.hero.physicsBody.affectedByGravity = false
-        self.hero.physicsBody.categoryBitMask = ColliderType.Hero.toRaw()
-        self.hero.physicsBody.contactTestBitMask = ColliderType.Block.toRaw()
-        self.hero.physicsBody.collisionBitMask = ColliderType.Block.toRaw()
+        self.hero.physicsBody?.affectedByGravity = false
+        self.hero.physicsBody?.categoryBitMask = ColliderType.Hero.rawValue
+        self.hero.physicsBody?.contactTestBitMask = ColliderType.Block.rawValue
+        self.hero.physicsBody?.collisionBitMask = ColliderType.Block.rawValue
         
         self.block1.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block1.size.width, self.heroBaseline)
         self.block2.position = CGPointMake(CGRectGetMaxX(self.frame) + self.block2.size.width, self.heroBaseline + (self.block1.size.height / 2))
         self.block1.physicsBody = SKPhysicsBody(rectangleOfSize: self.block1.size)
-        self.block1.physicsBody.dynamic = false
-        self.block1.physicsBody.categoryBitMask = ColliderType.Block.toRaw()
-        self.block1.physicsBody.contactTestBitMask = ColliderType.Hero.toRaw()
-        self.block1.physicsBody.collisionBitMask = ColliderType.Hero.toRaw()
+        self.block1.physicsBody?.dynamic = false
+        self.block1.physicsBody?.categoryBitMask = ColliderType.Block.rawValue
+        self.block1.physicsBody?.contactTestBitMask = ColliderType.Hero.rawValue
+        self.block1.physicsBody?.collisionBitMask = ColliderType.Hero.rawValue
         
         self.block2.physicsBody = SKPhysicsBody(rectangleOfSize: self.block1.size)
-        self.block2.physicsBody.dynamic = false
-        self.block2.physicsBody.categoryBitMask = ColliderType.Block.toRaw()
-        self.block2.physicsBody.contactTestBitMask = ColliderType.Hero.toRaw()
-        self.block2.physicsBody.collisionBitMask = ColliderType.Hero.toRaw()
+        self.block2.physicsBody?.dynamic = false
+        self.block2.physicsBody?.categoryBitMask = ColliderType.Block.rawValue
+        self.block2.physicsBody?.contactTestBitMask = ColliderType.Hero.rawValue
+        self.block2.physicsBody?.collisionBitMask = ColliderType.Hero.rawValue
         
         self.origBlockPositionX = self.block1.position.x
         
@@ -96,7 +96,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     
     func died() {
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
-            let skView = self.view as SKView
+            let skView = self.view as SKView!
             skView.ignoresSiblingOrder = true
             scene.size = skView.bounds.size
             scene.scaleMode = .AspectFill
@@ -111,14 +111,14 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     
     var blockStatuses:Dictionary<String,BlockStatus> = [:]
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         if self.onGround {
             self.velocityY = -18.0
             self.onGround = false
         }
     }
     
-    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         if self.velocityY < -9.0 {
             self.velocityY = -9.0
         }
@@ -152,7 +152,7 @@ class PlayScene: SKScene, SKPhysicsContactDelegate {
     
     func blockRunner() {
         for(block, blockStatus) in self.blockStatuses {
-            var thisBlock = self.childNodeWithName(block)
+            var thisBlock = self.childNodeWithName(block)!
             if blockStatus.shouldRunBlock() {
                 blockStatus.timeGapForNextRun = random()
                 blockStatus.currentInterval = 0
